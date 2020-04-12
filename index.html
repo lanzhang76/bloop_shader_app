@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Socket</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="display_box">
+        <div id="display_count"></div>
+        <div id="code_area">
+            <textarea id='code_text' name="code" id="" cols="50" rows="20" placeholder="Hello, world!"></textarea>
+        </div>
+
+
+    </div>
+
+    <div id="container"></div>
+
+    <script id="vs" type="x-shader/x-vertex">
+        #version 300 es
+
+        uniform float time;
+        varying vec2 vUv;
+
+        void main() {
+            
+            vUv = uv;
+            
+            vec3 transformed = vec3(position);
+            transformed.x = position.x + sin(position.y*1.6 + time*0.1)*0.2;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4( transformed, 1.0 );
+        
+        }
+    </script>
+
+    <script id="fs" type="x-shader/x-fragment">
+        #version 300 es
+        precision highp float;
+        precision highp int;
+
+        uniform float time;
+        out vec4 out_FragColor;
+        varying vec2 vUv;
+        
+        void main() {
+        
+            vec2 pos = vUv;
+            float red = abs( sin( pos.x * pos.y + time / 15.0 ) );
+            float green = abs( cos( pos.x * pos.y + time / 14.0 ) );
+            float blue = abs( cos( pos.x * pos.y + time / 13.0 ) );
+            out_FragColor = vec4( red, green, blue, 1.0 );
+        
+        } 
+    </script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/three.js"></script>
+    <script src="display.js"></script>
+    <script src="connect.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
