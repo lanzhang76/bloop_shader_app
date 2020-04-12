@@ -1,6 +1,6 @@
-### SOCKET setup
+### [Bloop](https://bloopp.herokuapp.com/)
 
-to run:
+to run locally:
 
 ```
 $ npm install
