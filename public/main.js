@@ -31,7 +31,10 @@ function init() {
         uniforms: uniform1,
         fog: true,
         vertexShader: document.getElementById('vs').textContent.trim(),
-        fragmentShader: document.getElementById('fs').textContent.trim()
+        // fragmentShader: document.getElementById('fs').textContent.trim()
+        // vertextShader: vert_code,
+        fragmentShader: frag_code
+
     });
     sphere = new THREE.Mesh(geometry, material);
     sphere.castShadow = true; //default is false
