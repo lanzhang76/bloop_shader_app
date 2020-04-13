@@ -33,3 +33,19 @@ body {
   outline: none;
   /* resize: none; */
 }
+
+button {
+  background-color: #cce6ff;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+button:focus {
+  outline: none;
+}

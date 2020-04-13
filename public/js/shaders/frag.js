@@ -6,6 +6,7 @@ var frag_code = [
   'uniform float time;',
   'out vec4 out_FragColor;',
   'varying vec2 vUv;',
+  '',
   'void main() {',
   '   vec2 pos = vUv;',
   '   float red = abs( sin( pos.x * pos.y + time / 15.0 ) );',
