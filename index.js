@@ -33,7 +33,7 @@ io.on('connection', function (socket) {
         io.sockets.emit('update', {
             num: totalCoder,
             who: currentCoders,
-            news: in_name
+            news: in_name // updates on who joined
         });
     })
 
@@ -57,9 +57,13 @@ io.on('connection', function (socket) {
 
     // when coder disconencts, update number:
     socket.on('disconnect', function (data) {
-        currentCoders.splice(currentCoders.indexOf(coder.name), 1);
         subCoder();
-        io.sockets.emit('update', { num: totalCoder, who: currentCoders })
+        currentCoders.splice(currentCoders.indexOf(coder.name), 1);
+        io.sockets.emit('update_leave', {
+            num: totalCoder, // updates on total number
+            who: currentCoders, // updates on who's in the room
+            news: coder.name // updates on who left
+        })
     });
 
 })

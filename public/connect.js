@@ -1,19 +1,18 @@
 var socket = io();
 
-socket.on('update', function (data) {
-    console.log(data.news)
+socket.on('update', (data) => {
     $("#display_count").html(`<span>${countCheck(data.num)}</span>`);
     $("#active_coders").html(`<span> Coders in the room: <span style="color:royalblue">${splitNames(data.who)}</span></span>`);
-    $(".console_box").html(`<span> ${data.news} joined the room <span>`);
+    $(".console_box").html(`<span> ${data.news} joined the room. <span>`);
 });
 
-socket.on('update_global', (data) => {
-    frag_code = data;
-    init();
+socket.on('update_leave', (data) => {
+    $("#display_count").html(`<span>${countCheck(data.num)}</span>`);
+    $("#active_coders").html(`<span> Coders in the room: <span style="color:royalblue">${splitNames(data.who)}</span></span>`);
+    $(".console_box").html(`<span> ${data.news} left the room. <span>`);
 })
 
 function countCheck(data) {
-    console.log(data)
     var count_sent = ''
     if (data == 1) {
         count_sent = `There is 1 coder in the room.`
