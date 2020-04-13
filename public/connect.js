@@ -7,9 +7,10 @@ socket.on('update', function (data) {
     $(".console_box").html(`<span> ${data.news} joined the room <span>`);
 });
 
-// socket.on('console_post', (data) => {
-//     
-// })
+socket.on('update_global', (data) => {
+    frag_code = data;
+    init();
+})
 
 function countCheck(data) {
     console.log(data)
