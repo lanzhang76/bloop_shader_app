@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Three.js Socket</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="/socket.io/socket.io.js"></script>
-  </head>
 
-  <body>
-    <div class="display_box">
-      <div id="display_count"></div>
-      <div id="buttons">
-        <button id="update-local">Update local</button>
-      </div>
-      <div id="code_area">
-        <textarea
-          id="code_text"
-          name="code"
-          id=""
-          cols="50"
-          rows="20"
-          placeholder="Hello, world!"
-          spellcheck="false"
-        ></textarea>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js Socket</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+  <div class="display_box">
+    <div id="display_count" class="hide-1"></div>
+    <div id="active_coders" class="hide-1"></div>
+
+    <div id="code_area" class="hide-1">
+      <textarea id="code_text" name="code" id="" cols="50" rows="20" placeholder="Hello, world!"
+        spellcheck="false"></textarea>
     </div>
+    <div id="buttons" class="hide-1">
+      <button id="update-local">Update local</button>
+    </div>
+  </div>
 
-    <div id="container"></div>
+  <div id="container"></div>
 
-    <script id="vs" type="x-shader/x-vertex">
+  <div id="form">
+    <form>
+      <label>Your name:<label>
+          <input autocomplete="off" placeholder="your name?" id="name_input">
+          <input type="submit" value="submit" id="submit">
+    </form>
+  </div>
+
+  <div class="console_box">
+  </div>
+
+  <script id="vs" type="x-shader/x-vertex">
       #version 300 es
 
       uniform float time;
@@ -46,7 +53,7 @@
       }
     </script>
 
-    <!-- <script id="fs" type="x-shader/x-fragment">
+  <!-- <script id="fs" type="x-shader/x-fragment">
       #version 300 es
       precision highp float;
       precision highp int;
@@ -66,13 +73,14 @@
       }
     </script> -->
 
-    <script src="js/jquery.js"></script>
-    <script src="js/three.js"></script>
-    <script src="js/shaders/vert.js"></script>
-    <script src="js/shaders/frag.js"></script>
-    <script src="update_local.js"></script>
-    <script src="display.js"></script>
-    <script src="connect.js"></script>
-    <script src="main.js"></script>
-  </body>
+  <script src="js/jquery.js"></script>
+  <script src="js/three.js"></script>
+  <script src="js/shaders/vert.js"></script>
+  <script src="js/shaders/frag.js"></script>
+  <script src="update_local.js"></script>
+  <script src="display.js"></script>
+  <script src="connect.js"></script>
+  <script src="main.js"></script>
+</body>
+
 </html>

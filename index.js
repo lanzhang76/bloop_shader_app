@@ -17,16 +17,31 @@ http.listen(port, function () {
 // Socket connection as well as data transmission happens below:
 
 var totalCoder = 0
+var currentCoders = [];
 io.on('connection', function (socket) {
     // per connection, we add one new coder in the room
     addCoder();
-    socket.emit('giveCOUNT', totalCoder);
+    var coder = {
+        name: ''
+    }
+
+    // grabs name
+    socket.on('userName', function (in_name) {
+        coder.name = in_name;
+        currentCoders.push(in_name);
+        io.sockets.emit('update', {
+            num: totalCoder,
+            who: currentCoders,
+            news: in_name
+        });
+    })
 
     // when coder leaves, update number:
     // disconenct
-    socket.on('disconnect', function () {
+    socket.on('disconnect', function (data) {
+        currentCoders.splice(currentCoders.indexOf(coder.name), 1);
         subCoder();
-        io.emit('disconnect', totalCoder)
+        io.sockets.emit('update', { num: totalCoder, who: currentCoders })
     });
 
 })
@@ -40,3 +55,4 @@ function addCoder() {
 function subCoder() {
     totalCoder--;
 }
+
