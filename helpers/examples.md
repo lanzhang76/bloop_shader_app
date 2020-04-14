@@ -14,7 +14,7 @@ void main() {
 }
 ```
 
-## ~Swirl~
+## Swirl
 
 ```glsl
 #version 300 es
