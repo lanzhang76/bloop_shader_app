@@ -68,6 +68,9 @@ button:focus {
   background: none;
   outline: none;
   padding: 3px;
+}
+
+#submit {
   cursor: pointer;
 }
 
