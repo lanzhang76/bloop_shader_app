@@ -1,7 +1,6 @@
 var frag_code = [
   '#version 300 es',
   'precision highp float;',
-  'precision highp int;',
   '',
   'uniform float time;',
   'out vec4 out_FragColor;',
