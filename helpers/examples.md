@@ -32,7 +32,7 @@ void main() {
 }
 ```
 
-## Purple static
+## Purple mesh
 
 ```glsl
 #version 300 es
