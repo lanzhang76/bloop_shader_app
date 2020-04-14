@@ -1,6 +1,8 @@
-```glsl
-// ~PURPLE STATIC~
+# Example GLSL code
 
+## PURPLE STATIC
+
+```glsl
 #version 300 es
 precision highp float;
 
@@ -19,9 +21,9 @@ void main() {
 }
 ```
 
-```glsl
-// !SPIKES!
+## SPIKES
 
+```glsl
 #version 300 es
 precision highp float;
 
