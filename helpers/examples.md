@@ -23,14 +23,18 @@ void main() {
 // !SPIKES!
 
 #version 300 es
-precision highp float
+precision highp float;
+
+uniform float time;
+out vec4 out_FragColor;
+varying vec2 vUv;
 
 void main() {
   vec2 pos = vUv;
   float line = 0.5;
-  line += mod(pos.x, 0.5);
+  line += mod(pos.x, .05);
 
-  float c = step(line, pos.y)
-  out_FragColor = vec4(vec3(c), 1.0)
+  float c = step(line, pos.y);
+  out_FragColor = vec4(c, c, c, 1.0);
 }
 ```
