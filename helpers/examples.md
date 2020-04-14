@@ -14,7 +14,7 @@ void main() {
 }
 ```
 
-## Gradient
+## Simple color gradient
 ```
 #version 300 es
 precision highp float;
@@ -129,7 +129,7 @@ void main() {
 }
 ```
 
-# grid-iant
+## grid-iant~
 ```glsl
 #version 300 es
 precision highp float;
