@@ -19,10 +19,10 @@
         spellcheck="false"></textarea>
     </div>
     <div id="buttons" class="hide-1">
-      <button id="update-local">Update locally</button>
+      <button id="update-local">Preview my code</button>
       <button id="push">Push my code</button>
-      <button id="pull">Pull update</button>
-      <button id="updateAll">Update to all</button><br>
+      <button id="updateAll">Force push my code</button>
+      <button id="pull">Pull from server</button><br>
       <button id="getIdea">Help! I need some ideas</button>
     </div>
   </div>
@@ -56,26 +56,6 @@
 
       }
     </script>
-
-  <!-- <script id="fs" type="x-shader/x-fragment">
-      #version 300 es
-      precision highp float;
-      precision highp int;
-
-      uniform float time;
-      out vec4 out_FragColor;
-      varying vec2 vUv;
-
-      void main() {
-
-          vec2 pos = vUv;
-          float red = abs( sin( pos.x * pos.y + time / 15.0 ) );
-          float green = abs( cos( pos.x * pos.y + time / 14.0 ) );
-          float blue = abs( cos( pos.x * pos.y + time / 13.0 ) );
-          out_FragColor = vec4( 1.0 );
-
-      }
-    </script> -->
 
   <script src="js/jquery.js"></script>
   <script src="js/three.js"></script>
