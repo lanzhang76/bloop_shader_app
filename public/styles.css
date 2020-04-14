@@ -84,3 +84,65 @@ button:focus {
   left: var(--univresal-margin);
   bottom: var(--univresal-margin);
 }
+
+.title {
+  position: fixed;
+  right: 10px;
+  top: 0;
+  padding: var(--univresal-margin);
+  font-family:'Lalezar', cursive;
+  font-size: 40px;
+  mix-blend-mode: difference;
+}
+
+.title_t{
+  position: absolute;
+  right: 10px;
+  top: 0;
+  padding: var(--univresal-margin);
+  cursor: default;
+  
+}
+
+#title1 {
+  color: rgba(255, 0, 0, 0.5);
+  right: 11px;
+  top: -1px;
+  animation: glitch 6s infinite;
+
+}
+
+#title2 {
+  color: rgba(0, 255, 0, 0.6);
+  right: 8px;
+  top: 2px;
+
+}
+
+#title3{
+  color: rgba(0, 0, 255, 0.6);
+
+}
+
+
+@keyframes glitch {
+  0% {
+      transform: translate(0);
+  }
+  20% {
+      transform: translate(-1px, 1px);
+  }
+  40% {
+      transform: translate(-1px, -1.5px);
+  }
+  60% {
+      transform: translate(1px, 2px);
+  }
+  80% {
+      transform: translate(2px, -1px);
+  }
+  100% {
+      transform: translate(0);
+  }
+
+}
