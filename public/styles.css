@@ -2,7 +2,7 @@
   --back-lightblue: #e6f2ff;
   --back-lightblueB: #cce6ff;
   --font-size: 15px;
-  --font-code-size: 15px;
+  --font-code-size: 12px;
   --univresal-margin: 10px;
 }
 
@@ -31,6 +31,7 @@ body {
 }
 
 #code_area textarea {
+  font-family: monospace;
   margin-top: 20px;
   background: rgba(0, 0, 0, 0.05);
   padding: 10px;
