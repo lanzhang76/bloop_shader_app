@@ -72,3 +72,28 @@ void main() {
   out_FragColor = vec4(c, c, c, 1.0);
 }
 ```
+
+## Fine grain
+
+```
+#version 300 es
+precision highp float;
+
+uniform float time;
+out vec4 out_FragColor;
+varying vec2 vUv;
+
+float rand(vec2 co) {
+  return fract(sin(dot(co.xy , vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void main() {
+  vec2 pos = vUv;
+  float c = abs( sin( pos.x ) );
+
+  vec3 grain = vec3(rand(vec2(pos.xy * 10.)));
+  vec3 color = vec3(c, 0., c);
+
+  out_FragColor = vec4(min(grain, color), 1.0);
+}
+```
