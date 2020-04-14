@@ -14,6 +14,21 @@ void main() {
 }
 ```
 
+## Blink
+
+```glsl
+#version 300 es
+precision highp float;
+
+uniform float time;
+out vec4 out_FragColor;
+varying vec2 vUv;
+
+void main() {
+	out_FragColor = vec4(1.0,1.0,abs(sin(time / 5.)),1.0);
+}
+```
+
 ## Swirl
 
 ```glsl
