@@ -15,7 +15,7 @@ void main() {
 ```
 
 ## Simple color gradient
-```
+```glsl
 #version 300 es
 precision highp float;
 
