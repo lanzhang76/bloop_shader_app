@@ -14,6 +14,22 @@ void main() {
 }
 ```
 
+## Gradient
+```
+#version 300 es
+precision highp float;
+
+uniform float time;
+out vec4 out_FragColor;
+varying vec2 vUv;
+
+void main() {
+  vec2 pos = vUv;
+  vec3 color = vec3(vUv.x,vUv.y,abs(sin(time * 0.3)));
+  out_FragColor = vec4( color, 1.0 );
+}
+```
+
 ## Blink
 
 ```glsl
@@ -111,4 +127,26 @@ void main() {
 
   out_FragColor = vec4(min(grain, color), 1.0);
 }
+```
+
+# grid-iant
+```glsl
+#version 300 es
+precision highp float;
+
+#define TWO_PI 6.28318530718
+uniform vec2 resolution;
+uniform float time;
+out vec4 out_FragColor;
+varying vec2 vUv;
+
+
+void main() {
+  vec2 pos = vUv;
+  float y = fract(pos.y*40.);
+  y *= fract(pos.x*40.);
+  vec3 color = vec3(y,y,abs(sin(time* 0.03)));
+  out_FragColor = vec4(color, 1.0);
+}
+
 ```
