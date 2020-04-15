@@ -171,3 +171,20 @@ void main() {
   out_FragColor = vec4(g, g, g, 1.0);
 }
 ```
+
+```glsl
+#version 300 es
+precision highp float;
+
+out vec4 out_FragColor;
+uniform float time;
+varying vec2 vUv;
+
+void main() {
+  vec2 pos = vUv;
+  vec2 f = fract(pos.xy / vec2(.05, .05));
+  float d = distance(vec2(0.5, 0.5), f);
+  float g = step(0.3, d);
+  out_FragColor = vec4(g, g, g, 1.0);
+}
+```
