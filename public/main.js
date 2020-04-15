@@ -4,8 +4,8 @@ var mouseX = 0,
   mouseY = 0;
 
 function init() {
-  // Update text in case a pull has been made
-  $('#code_text').html(frag_code);
+  // Update text in case a pull/get random code request has been made
+  document.getElementById('code_text').value = frag_code;
 
   // set up scene
   scene = new THREE.Scene();
@@ -25,8 +25,10 @@ function init() {
   spotLight.castShadow = true;
   scene.add(spotLight);
 
-  // create geometry
-  geometry = new THREE.SphereGeometry(2, 32, 32);
+  // create geometry; diam is based on num users in the room
+  let diam = 1.25 + nusers * 0.1;
+  geometry = new THREE.SphereGeometry(diam, 32, 32);
+  console.log(diam);
 
   // declare uniform and set on materials:
   uniform1 = {

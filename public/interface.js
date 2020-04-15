@@ -1,6 +1,7 @@
 // Allow TAB in text-area
-$("#code_text").keydown(function (e) {
-    if (e.keyCode === 9) { // tab was pressed
+$('#code_text').keydown(function (e) {
+    if (e.keyCode === 9) {
+        // tab was pressed
         // get caret position/selection
         var start = this.selectionStart;
         end = this.selectionEnd;
@@ -8,9 +9,9 @@ $("#code_text").keydown(function (e) {
         var $this = $(this);
 
         // set textarea value to: text before caret + tab + text after caret
-        $this.val($this.val().substring(0, start)
-            + "\t"
-            + $this.val().substring(end));
+        $this.val(
+            $this.val().substring(0, start) + '\t' + $this.val().substring(end)
+        );
 
         // put caret at right position again
         this.selectionStart = this.selectionEnd = start + 1;

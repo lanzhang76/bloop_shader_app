@@ -54,7 +54,6 @@ io.on('connection', function (socket) {
     // force updates to all 
     socket.on('updateAll', function (data) {
         console.log(`${socket.id} updated to all users.`)
-        console.log(data)
         code = data;
         io.sockets.emit('update_global', code);
         io.sockets.emit('consoleUpdate', { person: coder.name, action: "push_all" })

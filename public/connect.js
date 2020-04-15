@@ -1,4 +1,5 @@
 var socket = io();
+let nusers = 1;
 
 socket.on('update', (data) => {
   $('#display_count').html(`<span>${countCheck(data.num)}</span>`);
@@ -6,6 +7,10 @@ socket.on('update', (data) => {
     `<span><span style="color:royalblue">${splitNames(data.who)}</span></span>`
   );
   $('.console_box').prepend(`<p> ${data.news} joined the room. <p>`);
+
+  // update size of blob based on users in the room
+  nusers = data.num;
+  init();
 });
 
 socket.on('update_leave', (data) => {
@@ -14,6 +19,10 @@ socket.on('update_leave', (data) => {
     `<span><span style="color:royalblue">${splitNames(data.who)}</span></span>`
   );
   $('.console_box').prepend(`<p> ${data.news} left the room. <p>`);
+
+  // update size of blob based on users in the room
+  nusers = data.num;
+  init();
 });
 
 function countCheck(data) {
@@ -43,7 +52,5 @@ $('#submit').click((e) => {
   $('.hide-1').show();
   $('#form').hide();
 });
-
-
 
 
