@@ -78,7 +78,7 @@ button:focus {
 #submit {
   cursor: pointer;
 }
-.console_area{
+.console_area {
   position: fixed;
   left: var(--univresal-margin);
   bottom: var(--univresal-margin);
@@ -86,28 +86,25 @@ button:focus {
   padding-right: 5px;
 }
 
-.reaction{
+.reaction {
   border: 1px dotted royalblue;
   background: lightblue;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
 .console_box {
-  
   font-size: 12px;
   color: royalblue;
   width: 300px;
   height: 80px;
   overflow-y: scroll;
   /* border: 1px solid black; */
-  
 
   display: flex;
   flex-direction: column-reverse;
-  
 }
 
-.console_box p{
+.console_box p {
   margin: 0;
   animation: changeColor 2s;
 }
@@ -117,12 +114,11 @@ button:focus {
     color: royalblue;
   }
   20% {
-    color:red;
+    color: red;
   }
   100% {
     color: royalblue;
   }
-
 }
 
 .title {
@@ -179,4 +175,26 @@ button:focus {
   100% {
     transform: translate(0);
   }
+}
+
+#timer-area {
+  padding: 20px;
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  text-align: right;
+}
+
+#timer {
+  font-size: 40px;
+  color: rgb(225, 65, 108);
+}
+
+#active_user,
+#active_theme {
+  color: royalblue;
+}
+
+#timer-area button {
+  margin-top: 10px;
 }

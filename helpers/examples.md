@@ -171,6 +171,8 @@ void main() {
 }
 ```
 
+## Polka dots
+
 ```glsl
 #version 300 es
 precision highp float;

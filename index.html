@@ -51,6 +51,14 @@
     <span id="title3" class="title_t">BLOOP</span>
   </div>
 
+  <div id="timer-area">
+    <div id="timer"></div>
+    <div id="active_user"></div>
+    <div id="active_theme"></div>
+    <button id="timer_button">START GROUP PLAY</button>
+    <button id="timer_stop_button">STOP</button>
+  </div>
+
   <script id="vs" type="x-shader/x-vertex">
       #version 300 es
 
@@ -77,6 +85,7 @@
   <script src="get_shader_idea.js"></script>
   <script src="update_local.js"></script>
   <script src="connect.js"></script>
+  <script src="timer.js"></script>
   <script src="update_global.js"></script>
   <script src="main.js"></script>
   <script src="interface.js"></script>

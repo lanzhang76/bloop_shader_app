@@ -1,5 +1,6 @@
 var socket = io();
 let nusers = 1;
+let users = [];
 
 socket.on('update', (data) => {
   $('#display_count').html(`<span>${countCheck(data.num)}</span>`);
@@ -11,6 +12,9 @@ socket.on('update', (data) => {
   // update size of blob based on users in the room
   nusers = data.num;
   init();
+
+  // update user list for workshop game
+  users = data.who;
 });
 
 socket.on('update_leave', (data) => {
@@ -23,6 +27,9 @@ socket.on('update_leave', (data) => {
   // update size of blob based on users in the room
   nusers = data.num;
   init();
+
+  // update user list for workshop game
+  users = data.who;
 });
 
 function countCheck(data) {
@@ -52,5 +59,3 @@ $('#submit').click((e) => {
   $('.hide-1').show();
   $('#form').hide();
 });
-
-
