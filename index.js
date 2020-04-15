@@ -21,13 +21,14 @@ var currentCoders = [];
 var code = ''
 io.on('connection', function (socket) {
     // per connection, we add one new coder in the room
-    addCoder();
+
     var coder = {
         name: ''
     }
 
     // grabs name
     socket.on('userName', function (in_name) {
+        addCoder();
         coder.name = in_name;
         currentCoders.push(in_name);
         io.sockets.emit('update', {
