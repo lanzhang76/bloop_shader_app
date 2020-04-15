@@ -1,4 +1,5 @@
 var socket = io();
+let nusers = 1;
 
 socket.on('update', (data) => {
   $('#display_count').html(`<span>${countCheck(data.num)}</span>`);
@@ -6,6 +7,10 @@ socket.on('update', (data) => {
     `<span><span style="color:royalblue">${splitNames(data.who)}</span></span>`
   );
   $('.console_box').html(`<span> ${data.news} joined the room. <span>`);
+
+  // update size of blob based on users in the room
+  nusers = data.num;
+  init();
 });
 
 socket.on('update_leave', (data) => {
@@ -14,6 +19,10 @@ socket.on('update_leave', (data) => {
     `<span><span style="color:royalblue">${splitNames(data.who)}</span></span>`
   );
   $('.console_box').html(`<span> ${data.news} left the room. <span>`);
+
+  // update size of blob based on users in the room
+  nusers = data.num;
+  init();
 });
 
 function countCheck(data) {
@@ -44,12 +53,10 @@ $('#submit').click((e) => {
   $('#form').hide();
 });
 
-
-
-
 // Allow TAB in text-area
-$("#code_text").keydown(function (e) {
-  if (e.keyCode === 9) { // tab was pressed
+$('#code_text').keydown(function (e) {
+  if (e.keyCode === 9) {
+    // tab was pressed
     // get caret position/selection
     var start = this.selectionStart;
     end = this.selectionEnd;
@@ -57,9 +64,9 @@ $("#code_text").keydown(function (e) {
     var $this = $(this);
 
     // set textarea value to: text before caret + tab + text after caret
-    $this.val($this.val().substring(0, start)
-      + "\t"
-      + $this.val().substring(end));
+    $this.val(
+      $this.val().substring(0, start) + '\t' + $this.val().substring(end)
+    );
 
     // put caret at right position again
     this.selectionStart = this.selectionEnd = start + 1;

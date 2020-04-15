@@ -25,8 +25,10 @@ function init() {
   spotLight.castShadow = true;
   scene.add(spotLight);
 
-  // create geometry
-  geometry = new THREE.SphereGeometry(2, 32, 32);
+  // create geometry; diam is based on num users in the room
+  let diam = 1.25 + nusers * 0.1;
+  geometry = new THREE.SphereGeometry(diam, 32, 32);
+  console.log(diam);
 
   // declare uniform and set on materials:
   uniform1 = {
