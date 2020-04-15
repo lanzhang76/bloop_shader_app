@@ -24,7 +24,7 @@ let user_ticker = 0;
 function chooseUser() {
   document.getElementById('active_user').innerText = `Now up: ${
     users[user_ticker % users.length]
-    }`;
+  }`;
   user_ticker += 1;
 }
 
@@ -42,7 +42,7 @@ function chooseTheme() {
   if (theme_ticker % 4 === 0) {
     document.getElementById('active_theme').innerText = `Theme: ${
       themes[theme_ticker % themes.length]
-      }`;
+    }`;
   }
 
   theme_ticker += 1;
@@ -50,6 +50,7 @@ function chooseTheme() {
 
 function startTimer() {
   theme_ticker = 0;
+  time_left = time_total;
   // time_left = time_total;
   // chooseTheme();
   // chooseUser();
