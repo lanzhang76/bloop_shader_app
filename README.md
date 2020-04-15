@@ -1,6 +1,6 @@
 ## [Bloop](https://bloopp.herokuapp.com/)
 
-<hr>
+> Lan Zhang & Anna Garbier
 
 ## What is Bloop?
 "Bloop" is a multi-user live shader editing tool made with socket.io and three.js.
