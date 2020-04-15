@@ -46,6 +46,7 @@ $('#timer_button').click((e) => {
 });
 
 socket.on('startGlobalTimer', function (data) {
+  stopTimer();
   startTimer();
   var theme = data.theme;
   var user = data.user;
