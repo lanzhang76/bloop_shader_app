@@ -10,8 +10,9 @@ function countdown() {
 
   function runCountdown() {
     if (time_left < 0) {
-      chooseTheme();
-      chooseUser();
+      // chooseTheme();
+      // chooseUser();
+      socket.emit('startTimedPlay', '');
       time_left = time_total;
     } else {
       timer_el.innerHTML = time_left;
@@ -24,7 +25,7 @@ let user_ticker = 0;
 function chooseUser() {
   document.getElementById('active_user').innerText = `Now up: ${
     users[user_ticker % users.length]
-  }`;
+    }`;
   user_ticker += 1;
 }
 
@@ -42,7 +43,7 @@ function chooseTheme() {
   if (theme_ticker % 4 === 0) {
     document.getElementById('active_theme').innerText = `Theme: ${
       themes[theme_ticker % themes.length]
-    }`;
+      }`;
   }
 
   theme_ticker += 1;
