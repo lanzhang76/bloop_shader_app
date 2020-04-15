@@ -163,11 +163,11 @@ uniform float time;
 varying vec2 vUv;
 
 void main() {
-    vec2 pos = vUv;
-    float x = floor(pos.x / .01);
-    float y = floor(pos.y / .01);
-    float g = mod(x + y, 2.0);
+  vec2 pos = vUv;
+  float x = floor(pos.x / .01);
+  float y = floor(pos.y / .01);
+  float g = mod(x + y, 2.0);
 
-    out_FragColor = vec4(g, g, g, 1.0);
+  out_FragColor = vec4(g, g, g, 1.0);
 }
 ```
