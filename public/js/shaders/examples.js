@@ -1,0 +1,27 @@
+const examples = [
+  [
+    '#version 300 es',
+    'precision highp float;',
+    '',
+    'uniform float time;',
+    'out vec4 out_FragColor;',
+    '',
+    'void main() {',
+    '   out_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );',
+    '}',
+  ].join('\n'),
+  [
+    '#version 300 es',
+    'precision highp float;',
+    '',
+    'uniform float time;',
+    'out vec4 out_FragColor;',
+    'varying vec2 vUv;',
+    '',
+    'void main() {',
+    '  vec2 pos = vUv;',
+    '  vec3 color = vec3(vUv.x,vUv.y,abs(sin(time * 0.3)));',
+    '  out_FragColor = vec4( color, 1.0 );',
+    '}',
+  ].join('\n'),
+];
