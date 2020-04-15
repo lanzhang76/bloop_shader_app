@@ -59,8 +59,6 @@ function chooseTheme() {
 
 function startTimer() {
   theme_ticker = 0;
-  chooseTheme();
-  chooseUser();
   countdown();
 }
 

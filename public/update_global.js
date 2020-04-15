@@ -37,12 +37,22 @@ socket.on('consoleUpdate', function (msg) {
 
 // Timer
 $('#timer_button').click((e) => {
-  // e.preventDefault(); // What does this do?
   socket.emit('startTimedPlay', 'TEST!!!');
-  console.log('emit startTimedPlay');
 });
 
 socket.on('startGlobalTimer', function (data) {
   startTimer();
-  console.log('receive startTimedPlay');
+  var theme = data.theme;
+  var user = data.user;
+  document.getElementById('active_theme').innerText = theme;
+  document.getElementById('active_user').innerText = user;
 });
+
+$('#timer_stop_button').click((e) => {
+  socket.emit('stopTime', '');
+});
+
+socket.on('stopGlobalTimer', function (data) {
+  stopTimer();
+});
+
