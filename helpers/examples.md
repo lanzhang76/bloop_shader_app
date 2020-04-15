@@ -15,6 +15,7 @@ void main() {
 ```
 
 ## Simple color gradient
+
 ```glsl
 #version 300 es
 precision highp float;
@@ -130,6 +131,7 @@ void main() {
 ```
 
 ## grid-iant~
+
 ```glsl
 #version 300 es
 precision highp float;
@@ -148,5 +150,24 @@ void main() {
   vec3 color = vec3(y,y,abs(sin(time* 0.03)));
   out_FragColor = vec4(color, 1.0);
 }
+```
 
+## Checker board
+
+```glsl
+#version 300 es
+precision highp float;
+
+out vec4 out_FragColor;
+uniform float time;
+varying vec2 vUv;
+
+void main() {
+    vec2 pos = vUv;
+    float x = floor(pos.x / .01);
+    float y = floor(pos.y / .01);
+    float g = mod(x + y, 2.0);
+
+    out_FragColor = vec4(g, g, g, 1.0);
+}
 ```
