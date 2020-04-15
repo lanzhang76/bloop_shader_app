@@ -1,4 +1,4 @@
-const time_total = 5;
+const time_total = 30;
 let time_left = time_total;
 const timer_el = document.getElementById('timer');
 const timer_button_el = document.getElementById('timer_button');
