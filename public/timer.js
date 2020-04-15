@@ -34,7 +34,7 @@ let themes = [
   'outer space',
   'calm',
   'spooky',
-  'lava lamp',
+  'chaos!',
 ];
 let theme_ticker = 0;
 
@@ -48,16 +48,25 @@ function chooseTheme() {
   theme_ticker += 1;
 }
 
-timer_button_el.addEventListener('click', function () {
+// For local testing only
+// timer_button_el.addEventListener('click', function () {
+//   startTimer();
+// });
+
+// timer_stop_button_el.addEventListener('click', function () {
+//   stopTimer();
+// });
+
+function startTimer() {
   theme_ticker = 0;
   chooseTheme();
   chooseUser();
   countdown();
-});
+}
 
-timer_stop_button_el.addEventListener('click', function () {
+function stopTimer() {
   timer_el.innerText = '';
   document.getElementById('active_user').innerText = '';
   document.getElementById('active_theme').innerText = '';
   clearInterval(timerId);
-});
+}
