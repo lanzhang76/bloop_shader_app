@@ -134,7 +134,6 @@ void main() {
 #version 300 es
 precision highp float;
 
-#define TWO_PI 6.28318530718
 uniform vec2 resolution;
 uniform float time;
 out vec4 out_FragColor;

@@ -41,18 +41,23 @@ io.on('connection', function (socket) {
     socket.on('pushCode', function (data) {
         console.log(`${socket.id} pushed code.`)
         code = data;
+        io.sockets.emit('consoleUpdate', { person: coder.name, action: "push" })
     })
 
     // when coders pull, it't updated to that one client only
     socket.on('pullCode', function (data) {
         console.log(`${socket.id} pulled update.`)
         io.to(socket.id).emit('update_global', code)
+        io.sockets.emit('consoleUpdate', { person: coder.name, action: "pull" })
     })
 
     // force updates to all 
     socket.on('updateAll', function (data) {
         console.log(`${socket.id} updated to all users.`)
-        io.sockets.emit('update_global', code)
+        console.log(data)
+        code = data;
+        io.sockets.emit('update_global', code);
+        io.sockets.emit('consoleUpdate', { person: coder.name, action: "push_all" })
     })
 
     // when coder disconencts, update number:
