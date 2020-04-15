@@ -37,7 +37,8 @@ socket.on('consoleUpdate', function (msg) {
 
 // Timer
 $('#timer_button').click((e) => {
-  socket.emit('startTimedPlay', 'TEST!!!');
+  socket.emit('startTimedPlay', '');
+  console.log('emit startTimedPlay');
 });
 
 socket.on('startGlobalTimer', function (data) {
@@ -48,11 +49,15 @@ socket.on('startGlobalTimer', function (data) {
   document.getElementById('active_user').innerText = user;
 });
 
-$('#timer_stop_button').click((e) => {
-  socket.emit('stopTime', '');
-});
+// $('#timer_stop_button').click((e) => {
+//   socket.emit('stopTime', '');
+//   socket.emit('stopTimedPlay', '');
+//   console.log('emit stopTimedPlay');
+// });
 
 socket.on('stopGlobalTimer', function (data) {
   stopTimer();
 });
 
+//   console.log('receive stopTimedPlay');
+// });
