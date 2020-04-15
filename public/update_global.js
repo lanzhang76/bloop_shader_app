@@ -37,12 +37,21 @@ socket.on('consoleUpdate', function (msg) {
 
 // Timer
 $('#timer_button').click((e) => {
-  // e.preventDefault(); // What does this do?
-  socket.emit('startTimedPlay', 'TEST!!!');
+  socket.emit('startTimedPlay', '');
   console.log('emit startTimedPlay');
 });
 
 socket.on('startGlobalTimer', function (data) {
   startTimer();
   console.log('receive startTimedPlay');
+});
+
+$('#timer_stop_button').click((e) => {
+  socket.emit('stopTimedPlay', '');
+  console.log('emit stopTimedPlay');
+});
+
+socket.on('stopGlobalTimer', function (data) {
+  stopTimer();
+  console.log('receive stopTimedPlay');
 });

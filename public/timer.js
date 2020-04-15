@@ -1,6 +1,4 @@
-console.log('timer connected');
-
-const time_total = 30;
+const time_total = 5;
 let time_left = time_total;
 const timer_el = document.getElementById('timer');
 const timer_button_el = document.getElementById('timer_button');
@@ -22,43 +20,37 @@ function countdown() {
   }
 }
 
+let user_ticker = 0;
 function chooseUser() {
-  document.getElementById('active_user').innerText = `Now up: ${randitem(
-    users
-  )}`;
+  document.getElementById('active_user').innerText = `Now up: ${
+    users[user_ticker % users.length]
+  }`;
+  user_ticker += 1;
 }
 
+let theme_ticker = 0;
 let themes = [
   'psychedelic',
   'floral',
   'outer space',
-  'calm',
+  'soothing',
   'spooky',
   'chaos!',
 ];
-let theme_ticker = 0;
 
 function chooseTheme() {
   if (theme_ticker % 4 === 0) {
-    document.getElementById('active_theme').innerText = `Theme: ${randitem(
-      themes
-    )}`;
+    document.getElementById('active_theme').innerText = `Theme: ${
+      themes[theme_ticker % themes.length]
+    }`;
   }
 
   theme_ticker += 1;
 }
 
-// For local testing only
-// timer_button_el.addEventListener('click', function () {
-//   startTimer();
-// });
-
-// timer_stop_button_el.addEventListener('click', function () {
-//   stopTimer();
-// });
-
 function startTimer() {
   theme_ticker = 0;
+  time_left = time_total;
   chooseTheme();
   chooseUser();
   countdown();

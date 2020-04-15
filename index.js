@@ -71,7 +71,10 @@ io.on('connection', function (socket) {
   // Timer
   socket.on('startTimedPlay', function (data) {
     io.sockets.emit('startGlobalTimer', '');
-    console.log(data);
+  });
+
+  socket.on('stopTimedPlay', function (data) {
+    io.sockets.emit('stopGlobalTimer', '');
   });
 
   // when coder disconencts, update number:
