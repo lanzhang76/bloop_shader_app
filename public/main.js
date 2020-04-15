@@ -4,8 +4,8 @@ var mouseX = 0,
   mouseY = 0;
 
 function init() {
-  // Update text in case a pull has been made
-  $('#code_text').html(frag_code);
+  // Update text in case a pull/get random code request has been made
+  document.getElementById('code_text').value = frag_code;
 
   // set up scene
   scene = new THREE.Scene();
