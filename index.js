@@ -59,6 +59,11 @@ io.on('connection', function (socket) {
         io.sockets.emit('consoleUpdate', { person: coder.name, action: "push_all" })
     })
 
+    // reactions:
+    socket.on('reaction', function (data) {
+        io.sockets.emit('reactions', { person: coder.name, reaction: data })
+    })
+
     // when coder disconencts, update number:
     socket.on('disconnect', function (data) {
         subCoder();

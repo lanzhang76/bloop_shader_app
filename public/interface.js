@@ -20,3 +20,26 @@ $('#code_text').keydown(function (e) {
         return false;
     }
 });
+
+$('#clap').click((e) => {
+    e.preventDefault();
+    var re = "clap";
+    socket.emit("reaction", re);
+});
+
+$('#hi').click((e) => {
+    e.preventDefault();
+    var re = "hi"
+    socket.emit("reaction", re);
+});
+
+socket.on("reactions", (data) => {
+    console.log(data)
+    if (data.reaction == 'clap') {
+        $('.console_box').prepend(`<p> ${data.person}: 👏 <p>`);
+    } else if (data.reaction == 'hi') {
+        $('.console_box').prepend(`<p> ${data.person} says hi: 😃 <p>`);
+    }
+
+})
+

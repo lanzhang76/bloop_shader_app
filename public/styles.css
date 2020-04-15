@@ -78,19 +78,29 @@ button:focus {
 #submit {
   cursor: pointer;
 }
-
-.console_box {
+.console_area{
+  position: fixed;
+  left: var(--univresal-margin);
+  bottom: var(--univresal-margin);
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.reaction{
+  border: 1px dotted royalblue;
+  background: lightblue;
+  margin-top:10px;
+}
+
+.console_box {
+  
   font-size: 12px;
   color: royalblue;
   width: 300px;
   height: 80px;
   overflow-y: scroll;
   /* border: 1px solid black; */
-  position: fixed;
-  left: var(--univresal-margin);
-  bottom: var(--univresal-margin);
+  
 
   display: flex;
   flex-direction: column-reverse;
