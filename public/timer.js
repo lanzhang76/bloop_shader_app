@@ -24,7 +24,7 @@ let user_ticker = 0;
 function chooseUser() {
   document.getElementById('active_user').innerText = `Now up: ${
     users[user_ticker % users.length]
-  }`;
+    }`;
   user_ticker += 1;
 }
 
@@ -42,7 +42,7 @@ function chooseTheme() {
   if (theme_ticker % 4 === 0) {
     document.getElementById('active_theme').innerText = `Theme: ${
       themes[theme_ticker % themes.length]
-    }`;
+      }`;
   }
 
   theme_ticker += 1;
@@ -50,12 +50,9 @@ function chooseTheme() {
 
 function startTimer() {
   theme_ticker = 0;
-<<<<<<< HEAD
-=======
-  time_left = time_total;
-  chooseTheme();
-  chooseUser();
->>>>>>> edec7f45dbbec379a2e5894cf72727edcf3944bb
+  // time_left = time_total;
+  // chooseTheme();
+  // chooseUser();
   countdown();
 }
 

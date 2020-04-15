@@ -35,6 +35,11 @@ socket.on('consoleUpdate', function (msg) {
   $('.console_box').prepend(`<p>${msg_update}</p>`);
 });
 
+
+
+
+
+
 // Timer
 $('#timer_button').click((e) => {
   socket.emit('startTimedPlay', '');
@@ -49,15 +54,11 @@ socket.on('startGlobalTimer', function (data) {
   document.getElementById('active_user').innerText = user;
 });
 
-// $('#timer_stop_button').click((e) => {
-//   socket.emit('stopTime', '');
-//   socket.emit('stopTimedPlay', '');
-//   console.log('emit stopTimedPlay');
-// });
+$('#timer_stop_button').click((e) => {
+  socket.emit('stopTime', '');
+});
 
 socket.on('stopGlobalTimer', function (data) {
   stopTimer();
 });
 
-//   console.log('receive stopTimedPlay');
-// });

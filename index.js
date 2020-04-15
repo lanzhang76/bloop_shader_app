@@ -79,7 +79,6 @@ io.on('connection', function (socket) {
     socket.on('stopTime', function (data) {
         io.sockets.emit('stopGlobalTimer', '');
     });
-<<<<<<< HEAD
 
     // when coder disconencts, update number:
     socket.on('disconnect', function (data) {
@@ -90,36 +89,7 @@ io.on('connection', function (socket) {
             who: currentCoders, // updates on who's in the room
             news: coder.name, // updates on who left
         });
-=======
-  });
-
-  // reactions:
-  socket.on('reaction', function (data) {
-    io.sockets.emit('reactions', { person: coder.name, reaction: data });
-  });
-
-  // Timer
-  socket.on('startTimedPlay', function (data) {
-    io.sockets.emit('startGlobalTimer', '');
-  });
-
-  socket.on('stopTimedPlay', function (data) {
-    io.sockets.emit('stopGlobalTimer', '');
-  });
-
-  // when coder disconencts, update number:
-  socket.on('disconnect', function (data) {
-    subCoder();
-    currentCoders.splice(currentCoders.indexOf(coder.name), 1);
-    io.sockets.emit('update_leave', {
-      num: totalCoder, // updates on total number
-      who: currentCoders, // updates on who's in the room
-      news: coder.name, // updates on who left
->>>>>>> edec7f45dbbec379a2e5894cf72727edcf3944bb
     });
-
-
-
 
 
 });
