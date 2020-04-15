@@ -68,6 +68,12 @@ io.on('connection', function (socket) {
     io.sockets.emit('reactions', { person: coder.name, reaction: data });
   });
 
+  // Timer
+  socket.on('startTimedPlay', function (data) {
+    io.sockets.emit('startGlobalTimer', '');
+    console.log(data);
+  });
+
   // when coder disconencts, update number:
   socket.on('disconnect', function (data) {
     subCoder();

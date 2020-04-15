@@ -38,11 +38,11 @@ socket.on('consoleUpdate', function (msg) {
 // Timer
 $('#timer_button').click((e) => {
   // e.preventDefault(); // What does this do?
-  socket.emit('startTimedPlay', '');
+  socket.emit('startTimedPlay', 'TEST!!!');
   console.log('emit startTimedPlay');
 });
 
-socket.on('startTimedPlay', function (data) {
+socket.on('startGlobalTimer', function (data) {
   startTimer();
   console.log('receive startTimedPlay');
 });
