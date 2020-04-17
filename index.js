@@ -21,15 +21,20 @@ var totalCoder = 0;
 var currentCoders = [];
 var code = '';
 io.on('connection', function (socket) {
-  // per connection, we add one new coder in the room
+  // to properly calculate total nums:
+  var addedUser = false;
 
   var coder = {
     name: '',
   };
 
-  // grabs name
+  // connects and registers name
   socket.on('userName', function (in_name) {
+    if (addedUser) return;
+
     addCoder();
+    addedUser = true;
+
     coder.name = in_name;
     currentCoders.push(in_name);
     io.sockets.emit('update', {
@@ -82,13 +87,16 @@ io.on('connection', function (socket) {
 
   // when coder disconencts, update number:
   socket.on('disconnect', function (data) {
-    subCoder();
-    currentCoders.splice(currentCoders.indexOf(coder.name), 1);
-    io.sockets.emit('update_leave', {
-      num: totalCoder, // updates on total number
-      who: currentCoders, // updates on who's in the room
-      news: coder.name, // updates on who left
-    });
+    // only disconnects user when it's connected already:
+    if (addedUser) {
+      subCoder();
+      currentCoders.splice(currentCoders.indexOf(coder.name), 1);
+      io.sockets.emit('update_leave', {
+        num: totalCoder, // updates on total number
+        who: currentCoders, // updates on who's in the room
+        news: coder.name, // updates on who left
+      });
+    }
   });
 });
 

@@ -38,7 +38,6 @@ socket.on('consoleUpdate', function (msg) {
 
 
 
-
 // Timer
 $('#timer_button').click((e) => {
   socket.emit('startTimedPlay', '');

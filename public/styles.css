@@ -178,7 +178,7 @@ button:focus {
 }
 
 #timer-area {
-  padding: 20px;
+  padding: var(--univresal-margin);
   position: fixed;
   right: 0px;
   bottom: 0px;
