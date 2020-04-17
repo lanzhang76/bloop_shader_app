@@ -35,8 +35,8 @@ function init() {
   // declare uniform and set on materials:
   uniform1 = {
     time: { value: 1.0 },
-    mouse: { value: new Three.Vector2(0,0)},
-    resolution: { value: new THREE.Vector2(window.innerWidth,window.innerHeight)}
+    mouse: { value: new THREE.Vector2(0, 0) },
+    resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
   };
 
   material = new THREE.ShaderMaterial({
@@ -79,14 +79,14 @@ function render() {
 // Resizes canvas
 window.addEventListener('resize', onResize, false);
 function onResize() {
-  uniform1['resolution'].value = new THREE.Vector2(window.innerWidth,window.innerHeight)
+  uniform1['resolution'].value = new THREE.Vector2(window.innerWidth, window.innerHeight)
 
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-window.addEventListener('mousemove', event=>{
+window.addEventListener('mousemove', event => {
   mouseX = event.clientX;
   mouseY = event.clientY;
 
