@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "socketio": "^1.0.0",
-    "three": "^0.115.0"
+    "three": "^0.125.0"
   },
   "engines": {
     "node": "10.15.3"
